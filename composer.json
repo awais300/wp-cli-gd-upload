@@ -14,7 +14,10 @@
     },
     "autoload":
     {
-        "files": ["command.php"],
+        "files": [
+            "command.php",
+            "src/ReadWrite.php",
+        ],
         "psr-4":
         {
             "AwaisWP\\GDriveWPCLIPackage\\": "src/"
