@@ -2,7 +2,7 @@
 
 namespace AwaisWP\GDriveWPCLIPackage;
 
-defined( 'ABSPATH' ) || exit;
+//defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Command
@@ -29,8 +29,8 @@ class Command {
 	 * Construct the class.
 	 */
 	public function __construct() {
-		$this->gdrive = GDrive::get_instance();
 		add_action( 'cli_init', array( $this, 'wp_cli_register_commands' ) );
+		//$this->gdrive = GDrive::get_instance();
 	}
 
 	/**
