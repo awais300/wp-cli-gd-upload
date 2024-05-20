@@ -9,7 +9,7 @@ namespace AwaisWP\GDriveWPCLIPackage;
  * @package AwaisWP\GDriveWPCLIPackage
  */
 
-class Command {
+class Command extends \WP_CLI_Command{
 
 	/**
 	 * The GDrive instace.
@@ -29,7 +29,7 @@ class Command {
 	 * Construct the class.
 	 */
 	public function __construct() {
-		add_action( 'cli_init', array( $this, __NAMESPACE__ . '\\wp_cli_register_commands' ) );
+		$this->wp_cli_register_commands();
 		//$this->gdrive = GDrive::get_instance();
 	}
 
