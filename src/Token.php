@@ -1,8 +1,5 @@
 <?php
-
 namespace AwaisWP\GDriveWPCLIPackage;
-
-//defined('ABSPATH') || exit;
 
 /**
  * Class Token
@@ -11,12 +8,20 @@ namespace AwaisWP\GDriveWPCLIPackage;
 
 class Token extends Singleton
 {
+	use ReadWrite;
+
 	public function getClient()
 	{
+		$keys = $this->get_keys();
+		$clientId =  $keys['client_id'];
+		$clientSecret =  $keys['client_secret'];
+
 		$client = new \Google_Client();
 		$client->setApplicationName('Google Drive API');
 		$client->setScopes(SCOPES);
-		$client->setAuthConfig(CREDENTIALS_PATH);
+		$client->setClientId( $clientId );
+		$client->setClientSecret( $clientSecret );
+		//$client->setAuthConfig(CREDENTIALS_PATH);
 		$client->setAccessType('offline');
 		$client->setPrompt('select_account consent');
 
@@ -50,8 +55,11 @@ class Token extends Singleton
 			if (!file_exists(dirname(TOKEN_PATH))) {
 				mkdir(dirname(TOKEN_PATH), 0700, true);
 			}
+
 			file_put_contents(TOKEN_PATH, json_encode($client->getAccessToken()));
 		}
 		return $client;
 	}
+
+	
 }
