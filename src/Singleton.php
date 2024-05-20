@@ -2,8 +2,6 @@
 
 namespace AwaisWP\GDriveWPCLIPackage;
 
-//defined('ABSPATH') || exit;
-
 /**
  * Base class for singleton objects.
  * Class Singleton.
