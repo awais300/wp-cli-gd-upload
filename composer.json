@@ -2,6 +2,11 @@
     "name": "awais300/wp-cli-gd-upload",
     "description": "Upload large files to Google Drive",
     "type": "wp-cli-package",
+    "authors": [
+    {
+        "name": "Muhammad Awais",
+        "email": "awais300@gmail.com"
+    }],
     "require":
     {
         "wp-cli/wp-cli": "^2.0",
@@ -9,6 +14,7 @@
     },
     "autoload":
     {
+        "files": ["command.php"],
         "psr-4":
         {
             "AwaisWP\\GDriveWPCLIPackage\\": "src/"

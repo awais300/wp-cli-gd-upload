@@ -29,7 +29,6 @@ class Command {
 	 * Construct the class.
 	 */
 	public function __construct() {
-		exit('ddd');
 		add_action( 'cli_init', array( $this, 'wp_cli_register_commands' ) );
 		//$this->gdrive = GDrive::get_instance();
 	}
