@@ -2,7 +2,7 @@
 
 namespace AwaisWP\GDriveWPCLIPackage;
 
-defined( 'ABSPATH' ) || exit;
+//defined( 'ABSPATH' ) || exit;
 
 /**
  * Class GDrive
