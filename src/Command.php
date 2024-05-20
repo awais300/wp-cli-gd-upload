@@ -30,7 +30,7 @@ class Command extends \WP_CLI_Command{
 	 */
 	public function __construct() {
 		$this->wp_cli_register_commands();
-		//$this->gdrive = GDrive::get_instance();
+		$this->gdrive = GDrive::get_instance();
 	}
 
 	/**
