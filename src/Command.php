@@ -29,7 +29,7 @@ class Command {
 	 * Construct the class.
 	 */
 	public function __construct() {
-		add_action( 'cli_init', array( $this, 'wp_cli_register_commands' ) );
+		add_action( 'cli_init', array( $this, __NAMESPACE__ . '\\wp_cli_register_commands' ) );
 		//$this->gdrive = GDrive::get_instance();
 	}
 
