@@ -9,7 +9,7 @@ namespace AwaisWP\GDriveWPCLIPackage;
  * @package AwaisWP\Excluder\Addon\GDrive
  */
 
-class GDrive extends Singleton {
+class GDrive {
 
 
 
@@ -33,11 +33,11 @@ class GDrive extends Singleton {
 	 * Set Google API. Get Token and init the upload process.
 	 *
 	 **/
-	function initialize() {
+	function initialize($path, $gd_folder_id) {
+		$this->fileRequest = $path;
+		$this->folderId    = $gd_folder_id;
 		try {
 			$this->display( 'Initializing uploading...' );
-
-			$client = $this->client;
 			$this->processFile();
 
 		} catch ( \Exception $e ) {
