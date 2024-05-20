@@ -16,7 +16,7 @@
     {
         "files": [
             "command.php",
-            "src/ReadWrite.php",
+            "src/ReadWrite.php"
         ],
         "psr-4":
         {
