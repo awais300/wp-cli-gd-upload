@@ -16,4 +16,4 @@ define('SCOPES', implode(' ', [
 ]));
 
 // Register the main command with WP-CLI
-\WP_CLI::add_command('gd-upload', 'AwaisWP\GDriveWPCLIPackage\Command');
+\WP_CLI::add_command('gd-upload', '\AwaisWP\GDriveWPCLIPackage\Command');
