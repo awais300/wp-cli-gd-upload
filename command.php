@@ -4,7 +4,7 @@ if ( ! class_exists( 'WP_CLI' ) ) {
     return;
 }
 
-$autoload = '../../vendor/autoload.php';
+$autoload = 'vendor/autoload.php';
 if ( file_exists( $autoload ) ) {
     require_once $autoload;
 }
