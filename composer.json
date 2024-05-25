@@ -15,8 +15,7 @@
     "autoload":
     {
         "files": [
-            "command.php",
-            "src/ReadWrite.php"
+            "command.php"
         ],
         "psr-4":
         {
