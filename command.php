@@ -15,5 +15,5 @@ define('SCOPES', implode(' ', [
     \Google_Service_Drive::DRIVE_FILE
 ]));
 
-
-new \AwaisWP\GDriveWPCLIPackage\Command();
+// Register the main command with WP-CLI
+\WP_CLI::add_command('gd-upload', 'AwaisWP\GDriveWPCLIPackage\Command');
