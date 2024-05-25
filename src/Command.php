@@ -72,11 +72,11 @@ class Command extends \WP_CLI_Command{
      * 
      * ## EXAMPLES
      * 
-     *     wp gd-upload add_key --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET
+     *     wp gd-upload addkey --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET
      * 
      * @when after_wp_load
      */
-    public function add_key( $args, $assoc_args ) {
+    public function addkey( $args, $assoc_args ) {
         $client_id = $assoc_args['client_id'];
         $client_secret = $assoc_args['client_secret'];
 
@@ -88,7 +88,7 @@ class Command extends \WP_CLI_Command{
 
             // Encode the keys array as JSON
             $keys_json = json_encode( $keys );
-            $this->save_keys(CREDENTIALS_PATH, $keys_json);
+            $this->save_keys($keys_json);
 
             \WP_CLI::success( 'Google Drive API client ID and client secret added successfully.' );
             \WP_CLI::line( 'Try below now.' );
@@ -109,7 +109,7 @@ class Command extends \WP_CLI_Command{
         $keys = $this->get_keys();
 
         if ( empty( $keys ) || empty($keys['client_id']) || empty($keys['client_secret'])) {
-            \WP_CLI::error( 'Google Drive API client ID and client secret are not configured. Run "wp gd-upload add_key" to add them.' );
+            \WP_CLI::error( 'Google Drive API client ID and client secret are not configured. Run "wp gd-upload addkey" to add them.' );
         }
 
         $client = (Token::get_instance())->getClient();
@@ -155,7 +155,7 @@ class Command extends \WP_CLI_Command{
     private function validate_key_arguments( $client_id = '', $client_secret = '' ) {
         if ( empty( $client_id ) || empty( $client_secret ) ) {
             \WP_CLI::error_multi_line( array( 'Please provide both the Google Drive API client ID and client secret.' ) );
-            $this->help_add_key();
+            $this->help_addkey();
         }
 
         return true;
@@ -164,8 +164,8 @@ class Command extends \WP_CLI_Command{
     /**
      * Display add key command help in console.
      */
-    private function help_add_key() {
-        \WP_CLI::line( 'Usage: wp gd-upload add_key --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET' );
+    private function help_addkey() {
+        \WP_CLI::line( 'Usage: wp gd-upload addkey --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET' );
         exit;
     }
 
