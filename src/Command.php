@@ -19,20 +19,6 @@ class Command extends \WP_CLI_Command{
 	private $command_name = 'gd-upload';
 
 	/**
-	 * Construct the class.
-	 */
-	public function __construct() {
-		//$this->wp_cli_register_commands();
-	}
-
-	/**
-	 * Register WP CLI command.
-	 **/
-	public function wp_cli_register_commands() {
-		//\WP_CLI::add_command( $this->command_name, array( $this, 'upload' ) );
-	}
-
-	/**
      * Upload file to a Google Drive.
      * 
      * ## OPTIONS
@@ -123,7 +109,7 @@ class Command extends \WP_CLI_Command{
      * @param string $gd_folder_id
      * @return bool | Exit()
      */
-    private function validate_gd_upload_arguments( $path = '', $gd_folder_id = '' ) {
+    protected function validate_gd_upload_arguments( $path = '', $gd_folder_id = '' ) {
         if ( ! is_file( $path ) || ! file_exists( $path ) ) {
             \WP_CLI::error_multi_line( array( 'Please provide the correct path of file.' ) );
             $this->help_gd_upload();
@@ -140,7 +126,7 @@ class Command extends \WP_CLI_Command{
     /**
      * Display general help in console.
      */
-    private function help_gd_upload() {
+    protected function help_gd_upload() {
         \WP_CLI::line( 'Site root path is: ' . ABSPATH );
         \WP_CLI::line( "Usage: {$this->command_name} --file=path/to/file --gdrive_folder_id=folder_id" );
         exit;
@@ -152,7 +138,7 @@ class Command extends \WP_CLI_Command{
      * @param string $client_secret
      * @return bool | Exit()
      */
-    private function validate_key_arguments( $client_id = '', $client_secret = '' ) {
+    protected function validate_key_arguments( $client_id = '', $client_secret = '' ) {
         if ( empty( $client_id ) || empty( $client_secret ) ) {
             \WP_CLI::error_multi_line( array( 'Please provide both the Google Drive API client ID and client secret.' ) );
             $this->help_add_key();
@@ -164,7 +150,7 @@ class Command extends \WP_CLI_Command{
     /**
      * Display add key command help in console.
      */
-    private function help_add_key() {
+    protected function help_add_key() {
         \WP_CLI::line( 'Usage: wp gd-upload add_key --client_id=YOUR_CLIENT_ID --client_secret=YOUR_CLIENT_SECRET' );
         exit;
     }
