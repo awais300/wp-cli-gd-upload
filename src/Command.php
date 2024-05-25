@@ -29,7 +29,7 @@ class Command extends \WP_CLI_Command{
 	 * Register WP CLI command.
 	 **/
 	public function wp_cli_register_commands() {
-		\WP_CLI::add_command( $this->command_name, array( $this, 'upload' ), $this->get_upload_command_synopsis() );
+		\WP_CLI::add_command( $this->command_name, array( $this, 'upload' ) );
 	}
 
 	/**
