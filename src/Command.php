@@ -22,14 +22,14 @@ class Command extends \WP_CLI_Command{
 	 * Construct the class.
 	 */
 	public function __construct() {
-		$this->wp_cli_register_commands();
+		//$this->wp_cli_register_commands();
 	}
 
 	/**
 	 * Register WP CLI command.
 	 **/
 	public function wp_cli_register_commands() {
-		\WP_CLI::add_command( $this->command_name, array( $this, 'upload' ) );
+		//\WP_CLI::add_command( $this->command_name, array( $this, 'upload' ) );
 	}
 
 	/**
