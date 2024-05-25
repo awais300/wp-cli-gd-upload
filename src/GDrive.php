@@ -9,7 +9,7 @@ namespace AwaisWP\GDriveWPCLIPackage;
  * @package AwaisWP\Excluder\Addon\GDrive
  */
 
-class GDrive {
+class GDrive extends Singelton {
 
 
 
