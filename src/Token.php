@@ -21,6 +21,7 @@ class Token extends Singleton
 		$client->setScopes(SCOPES);
 		$client->setClientId( $clientId );
 		$client->setClientSecret( $clientSecret );
+		$client->setRedirectUri( 'http://localhost' );
 		//$client->setAuthConfig(CREDENTIALS_PATH);
 		$client->setAccessType('offline');
 		$client->setPrompt('select_account consent');
